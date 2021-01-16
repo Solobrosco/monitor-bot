@@ -1,0 +1,7 @@
+git checkout [branch name]
+git add [filename]
+git commit -m 'message'
+git push
+git remote add origin [url]
+git branch --unset-upstream
+git branch --set-upstream origin main
