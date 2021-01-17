@@ -5,3 +5,4 @@ git push
 git remote add origin [url]
 git branch --unset-upstream
 git branch --set-upstream origin main
+We will be using selenium to access browers
