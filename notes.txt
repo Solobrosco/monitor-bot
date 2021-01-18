@@ -8,3 +8,6 @@ git branch --set-upstream origin main
 We will be using selenium to access browers
 
 Use https://www.selenium.dev/documentation/en/selenium_installation/ to help with installing selenium
+
+We will need to use the requests package. Use https://2.python-requests.org/en/master/user/install/#install to install.
+We also need to use json package, comes with python already.
