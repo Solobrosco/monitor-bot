@@ -1,9 +1,18 @@
-##Monitor bot
+#Monitor bot
 
 Here lies the code of the monitor bot.
 
-Markup : * To run Bot use "python main.py"
+* To run Bot
+    * Have python installed
+    * Use "python main.py"
 
+* Bot future features
+    * Optional price checker
+    * Wait for items to restock if they are out of stock 
+    * Want to be able to start and stop on demand
 
-Will need API plus while loop to continue monitoring
-Want to be able to start and stop on demand
+* Required Packages
+    * Selenium
+    * Json
+    * Request
+    * ChromeDriver
