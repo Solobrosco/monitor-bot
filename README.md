@@ -1,6 +1,6 @@
 # Monitor Bot
 
-Here lies the code of the monitor bot.
+This bot will help monitor data from websites.
 
 ## Installation
 
@@ -11,12 +11,11 @@ pip install -r requirments.txt
 ```
 
 ## Usage
+
+To run the program, please run this line.
+
 ```bash
 python main.py 
-```
-
-```python
-print("Hello World")
 ```
 
 ## Contributing
