@@ -3,45 +3,49 @@ import json
 import time
 from selenium import webdriver
 
-print("Hello I am a monitor bot written in python");
+
+print("Hello I am a monitor bot written in python")
 #allows you to access website information
 
 def product_list():
-    r = requests.get('https://kith.com/products.json?limit=250')
+    r = requests.get('https://kith.com/products.json')
     products = json.loads((r.text))['products']
 
     for product in products:
         productname = product['title'] 
         print (productname)
 
+#check stock function
 def avaliable_stock():
-    r = requests.get('https://kith.com/products.json?limit=250')
+    r = requests.get('https://kith.com/products.json')
     products = json.loads((r.text))['products']
-    #print(products)
-    #search by title
     for product in products:
-        productname = product['title'] 
-
-        if (productname.find(text)!= -1): 
-            print ("\nProduct "+text+" in stock\n ") 
-            if (text.find('WMNS')!= -1):
-                product_url = 'https://kith.com/collections/womens-footwear/products/' + product['handle']
-                return (product_url)
-
-            else: 
-                product_url = 'https://kith.com/collections/mens-footwear/products/' + product['handle']
-                return (product_url)
-
-        else: 
-            return False
+        productname = product['title']
+        if productname == text: 
+            print ("\nProduct "+ product['title'] +" in stock\n ")
+            var = product['variants']
+            #find available size
+            for available in var:
+                avail = available['available']
+                size = available['title']
+                if avail == True:
+                    print (size + " -available")
+            product_url = 'https://kith.com/products/' + product['handle']
+            return (product_url)
+    else: 
+        return False
 
 product_list()
 
-text = raw_input("what product are you looking to check: ")
-new_url = avaliable_stock()
-if new_url != False:
-    print (new_url + '\n')
-else:
-    print ('not avaliable')
-#print(products[1])
-#used raw_input instead of input 
+text = input("what product are you looking to check: ")
+#loop to continuously check stock
+while True:
+    new_url = avaliable_stock()
+    if new_url != False:
+        #driver = webdriver.Chrome(executable_path='/Users/aaronvanoung/Desktop/chromedriver')
+        print(new_url + '\n')
+        #driver.get(new_url)
+        break
+    else:
+        print('not avaliable')
+        time.sleep(1)
